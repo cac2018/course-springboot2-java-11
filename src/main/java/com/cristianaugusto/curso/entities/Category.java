@@ -1,6 +1,8 @@
 package com.cristianaugusto.curso.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +19,8 @@ public class Category implements Serializable{
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	private Set<Product> products = new HashSet<Product>();
 	
 	public Category() {}
 
@@ -42,6 +46,10 @@ public class Category implements Serializable{
 		this.name = name;
 	}
 
+	public Set<Product> getProducts() {
+		return products;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -66,6 +74,6 @@ public class Category implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 	
 }
